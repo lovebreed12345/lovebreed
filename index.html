@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+        <title>Hello, World!</title>
+        <link rel="stylesheet" href="styles/style.css"/>
+        <link rel="stylesheet" href="styles/bootstrap.css"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <style>
+        body{
+    margin:0;
+background-color :white;
+color:black;
+width:100%;
+}
+p { 
+    padding: 50px; 
+    font-size: 32px; 
+    font-weight: bold; 
+    text-align: center; 
+    background: #dbdfe5; 
+  } 
+.sidepanel{
+    height:100%;
+    width:0;
+    z-index: 1;
+    padding-top:60px;
+    background-color:rgba(10,20,70,80);
+    position:fixed;
+    transition:0.3s;
+    overflow-x:hidden;
+overflow-y:hidden;
+    
+}
+.sidepanel a{
+    text-decoration:none;
+    font-size:20px;
+    padding:8px 8px 8px 32px;
+    display:block;
+    transition:0.3s;
+    color:white;
+font-family:serif;
+filter:hsla(20,3,4,70);
+    
+}
+.sidepanel a:hover{
+    color:aquamarine;
+}
+.sidepanel .closebtn{
+    font-size:35px;
+    right:0;
+    position:absolute;
+    color:white;
+    top:0;
+    
+}
+.sidepanel .closebtn:hover{
+    color:gray;
+}
+.openbtn{
+margin-top:10px;
+
+margin-left:10px;
+   font-size:30px;
+background-color :inherit ;
+font-style:italic;
+    color:white;
+    border:none;
+outline:none;
+border-radius :6px;
+font-weight:bolder;
+}
+
+        .top{
+    background-color:rgba(10,20,70,80);
+padding-bottom:10px;
+
+    width:100%;
+position:;
+right:0;
+    height:70px;
+animation :anime 6s infinite;
+margin-bottom:150px;
+top:0;
+} 
+.rot{
+animation:spin 2s linear infinite;
+border:16px grey;
+border-radius:50%;
+width :100%;
+height :120px;
+border-top:16px blue;
+float:right;
+}
+@keyframes spin{
+0%{transform:rotate(0deg)}
+100%{transform:rotate(360deg)}
+
+
+}
+.roll{
+transition:0.6 ease;
+animation:spin 3s infinite ease-in;
+animation-timing-function:linear;
+background-color:purple;
+transform:translate(0,45);
+left:30px;
+text-align:center;
+border-radius:20px;
+position:relative;
+width:100%
+}
+#form{
+position:fixed;
+display:none;
+}
+#load{
+width:50px;
+height:50px;
+border-radius:50%;
+border:10px solid aqua;
+border-top:10px solid blue;
+border-bottom:10px solid red;
+border-right:10px solid green ;
+
+animation: spin 1s infinite linear;}
+.cont{
+background-color:grey;
+}
+.cont a{
+font-size:23px;
+text-decoration:none;
+float:left;
+}
+.dcube{
+font-size:50px;
+color:aqua;
+animation:glow ease-in-out 1s infinite;
+}
+@keyframes glo{
+from{text-shadow: 0 0 10px red, 0 0 20px yellow,0 0 30px red,0 0 40px red, 0 0 50px red,0 0 60px red;}
+to{text-shadow:0 0 10px blue, 0 0 20px blue,0 0 30px green,0 0 40px blue,0 0 50px blue,0 0 70px blue;}
+} 
+
+    </style>
+    <body>
+        <div id="form" class="login">
+            <button onclick="this.parentElement.style.display='none'" style="animation:spin 2s infinite ease reverse;" class="openbtn">&times</button>
+            <br><br>
+            <img src="InShot_20200518_231653922.jpg" style="width:100px;height:100px;border-radius:100%;">
+            <br><br>
+            <form style="color:black;margin-right:25px;margin-left:25px;">
+                <label style="font-size:20px;font-family:serif;" for="email" ><b>Email</b></label>
+                <input placeholder="Enter your username" type="text" name="email" required>
+                <br><br>
+                <label style="font-size:20px;font-family:serif;" for="pass"><b>Password</b></label>
+                <input type="password" placeholder="Enter your password " name="pass" required>
+                <br><br>
+                <label style="width:40px;height:40px;">Remember me<input class="closebtn" type="checkbox" checked="checked"/></label>
+                <br><br>
+                
+                <button style="background-color:black;color:white;width:100%;font-family:serif;height:40px;font-size:20px;outline:none;border:none;border-radius:15px;" type="submit">Login<I class="fad fa-camera"></i></button>
+                <br><br>
+                <a href="#" style="text-decoration:blink;color:purple;"><b>Not a member?   Click to Signup</b></a>
+                
+            </form>
+            
+        </div>
+        <div class="top">
+            <div class="sidepanel" id="mySidepanel">
+              <a  class="closebtn" onclick="closeNav()">&times</a>
+              <a href="#">Home<i class="fab fa-accessible-icon"></i></a>
+              <a href="#">Music</a>
+              <a href="#">Contact</a>
+              <button onclick="login()"  id="logbtn">login</button>
+            </div>
+            <button class="openbtn" onclick="openNav()">&#9776;</button>
+            <b style="color:white;font-size:35px;font-family:serif;margin-left:50px;width:100%">TheCube</b>
+            
+        </div>
+        <div id="load"></div>
+        <h1 class="dcube">TheCube</h1>
+        <script>
+            var btn=document.getElementById("logbtn");
+            btn.addEventListener("click", closeNav);
+            function openNav() {
+  document.getElementById("mySidepanel").style.width="70%";
+}
+
+function closeNav() {
+  document.getElementById("mySidepanel").style.width="0%";
+}
+function close(){
+document.getElementById("logbtn").style.display="block";}
+function login(){
+document.getElementById("form").style.display="block";
+document.getElement
+}
+function zoom(){
+var text;
+var img= document.getElementById("img");
+img.style.width="100%";
+img.style.height="300px";
+text=document.createTextNode("Balaba");
+text.style.fontSize="25px";
+text.style.color="white";
+img.innerHTML=text;
+}
+var img =document.getElementById("img");
+window.onclick= function (event){
+if(event.target != img){
+img.style.width="70%";
+img.style.borderRadius="50%";}
+}
+canvasApp();
+
+        </script>
+        
+    </body>
+</html>
